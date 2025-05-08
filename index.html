@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pizzería</title>
+  <link rel="stylesheet" href="index.css">
+  <script defer src="index.js"></script>
+</head>
+<body>
+  <h1>¡Bienvenid@ a Pipshash con Amor!</h1>
+  <img src="logo.jpg" alt="Logo de la pizzería" width="200" class="logo">
+  <form id="formPedido">
+    <label>Nombre:
+      <input type="text" id="nombreC" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+">
+    </label><br><br>
+
+    <label>Fecha:
+      <input type="text" id="fechaPed" readonly>
+    </label><br><br>
+
+    <fieldset>
+      <legend>Pizzas:</legend>
+      <label><input type="checkbox" id="pepperoni"> Pepperoni $99</label><br>
+      <label><input type="checkbox" id="hawaiana"> Hawaiana $119</label><br>
+      <label><input type="checkbox" id="mexicana"> Mexicana $169</label><br>
+    </fieldset><br>
+
+    <fieldset>
+      <legend>Complementos:</legend>
+      <label><input type="checkbox" id="refresco"> Refresco</label><br>
+      <label><input type="checkbox" id="quesoExtra"> Queso Extra</label><br>
+      <label><input type="checkbox" id="orillaQueso"> Orilla de Queso</label><br>
+      <label><input type="checkbox" id="papas"> Papas</label><br>
+    </fieldset><br>
+
+    <fieldset>
+      <legend>Método de entrega:</legend>
+      <label><input type="radio" name="entrega" value="local" required> Consumo Local</label><br>
+      <label><input type="radio" name="entrega" value="domicilio"> Envío a Domicilio</label><br>
+    </fieldset><br>
+
+<button type="submit">Generar pedido</button>
+  </form>
+
+  <p id="mensajeError" style="color:red; display:none;">Por favor selecciona el método de entrega.</p>
+</body>
+</html>

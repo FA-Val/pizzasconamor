@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pago en Efectivo</title>
+  <link rel="stylesheet" href="efectivo.css">
+  <script defer src="efectivo.js"></script>
+</head>
+<body>
+  <h1>Pago en Efectivo</h1>
+
+  <p><strong>Nombre:</strong> <span id="nombreC"></span></p>
+  <p><strong>Fecha:</strong> <span id="fechaPed"></span></p>
+  <p><strong>Resumen del Pedido:</strong> <span id="pedidoResumen"></span></p>
+  <p><strong>Cantidad a cobrar:</strong> <span id="total"></span> MXN</p>
+
+  <form id="formEfectivo">
+    <label>Cantidad a pagar:
+      <input type="text" id="cantidadPagar" readonly>
+    </label><br><br>
+
+    <label>Cantidad recibida:
+      <input type="text" id="cantidadRecibida" required pattern="[0-9]+">
+    </label><br><br>
+
+    <p id="cambio"></p>
+
+    <button type="submit">Pagar</button>
+  </form>
+</body>
+</html>

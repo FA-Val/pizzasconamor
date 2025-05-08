@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F5F5DC;
+  color: #4F4F4F;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #7e473d;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  border: 2px solid #B08550;
+  border-radius: 10px;
+}
+
+label, select {
+  display: block;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #7e473d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a04545;
+}
+.logo {
+  display: block;
+  margin: 20px auto;
+}

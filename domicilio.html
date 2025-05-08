@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Envío a Domicilio</title>
+  <link rel="stylesheet" href="domicilio.css">
+  <script defer src="domicilio.js"></script>
+</head>
+<body>
+  <h1>Envío a domicilio</h1>
+
+  <p><strong>Nombre:</strong> <span id="nombreC"></span></p>
+  <p><strong>Fecha:</strong> <span id="fechaPed"></span></p>
+  <p><strong>Resumen del Pedido:</strong> <span id="pedidoResumen"></span></p>
+
+  <form id="formEnvio">
+    <label>Calle:
+      <input type="text" id="calle" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+">
+    </label><br><br>
+
+    <label>Número:
+      <input type="text" id="numCalle" required pattern="[0-9\-]+">
+    </label><br><br>
+
+    <label>Colonia:
+      <input type="text" id="colonia" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+">
+    </label><br><br>
+
+    <label>Celular:
+      <input type="text" id="celular" required pattern="[0-9]+">
+    </label><br><br>
+
+    <fieldset>
+      <legend>Método de pago:</legend>
+      <label><input type="radio" name="pago" value="tarjeta" required> Tarjeta</label><br>
+      <label><input type="radio" name="pago" value="efectivo"> Efectivo</label><br>
+    </fieldset><br>
+
+    <button id="btnPago">Siguiente</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consumo Local</title>
+  <link rel="stylesheet" href="local.css">
+  <script defer src="local.js"></script>
+</head>
+<body>
+  <h1>Consumo Local</h1>
+
+  <p><strong>Nombre:</strong> <span id="nombreC"></span></p>
+  <p><strong>Fecha:</strong> <span id="fechaPed"></span></p>
+  <p><strong>Resumen del Pedido:</strong> <span id="pedidoResumen"></span></p>
+
+  <fieldset>
+    <legend>Método de pago:</legend>
+    <label><input type="radio" name="pago" value="tarjeta" required> Tarjeta</label><br>
+    <label><input type="radio" name="pago" value="efectivo"> Efectivo</label><br>
+  </fieldset><br>
+
+  <button id="btnSiguiente">Siguiente</button>
+</body>
+</html>
