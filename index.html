@@ -4,42 +4,54 @@
   <meta charset="UTF-8">
   <title>Pizzería</title>
   <link rel="stylesheet" href="index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script defer src="index.js"></script>
 </head>
 <body>
   <h1>¡Bienvenid@ a Pipshash con Amor!</h1>
   <img src="logo.jpg" alt="Logo de la pizzería" width="200" class="logo">
+  
   <form id="formPedido">
     <label>Nombre:
       <input type="text" id="nombreC" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+">
-    </label><br><br>
+    </label>
 
     <label>Fecha:
-      <input type="text" id="fechaPed" readonly>
-    </label><br><br>
+      <input type="date" id="fechaPed" readonly>
+    </label>
 
     <fieldset>
       <legend>Pizzas:</legend>
-      <label><input type="checkbox" id="pepperoni"> Pepperoni $99</label><br>
-      <label><input type="checkbox" id="hawaiana"> Hawaiana $119</label><br>
-      <label><input type="checkbox" id="mexicana"> Mexicana $169</label><br>
-    </fieldset><br>
+      <label><input type="checkbox" id="pepperoni"> Pepperoni $99</label>
+      <label><input type="checkbox" id="hawaiana"> Hawaiana $119</label>
+      <label><input type="checkbox" id="mexicana"> Mexicana $169</label>
+    </fieldset>
 
     <fieldset>
       <legend>Complementos:</legend>
-      <label><input type="checkbox" id="refresco"> Refresco</label><br>
-      <label><input type="checkbox" id="quesoExtra"> Queso Extra</label><br>
-      <label><input type="checkbox" id="orillaQueso"> Orilla de Queso</label><br>
-      <label><input type="checkbox" id="papas"> Papas</label><br>
-    </fieldset><br>
+      <label><input type="checkbox" id="refresco"> Refresco</label>
+      <label><input type="checkbox" id="quesoExtra"> Queso Extra</label>
+      <label><input type="checkbox" id="orillaQueso"> Orilla de Queso</label>
+      <label><input type="checkbox" id="papas"> Papas</label>
+    </fieldset>
 
     <fieldset>
       <legend>Método de entrega:</legend>
-      <label><input type="radio" name="entrega" value="local" required> Consumo Local</label><br>
-      <label><input type="radio" name="entrega" value="domicilio"> Envío a Domicilio</label><br>
-    </fieldset><br>
+      <label><input type="radio" name="entrega" value="local"> Consumo Local</label>
+      <label><input type="radio" name="entrega" value="domicilio"> Envío a Domicilio</label>
+    </fieldset>
 
-<button type="submit">Generar pedido</button>
+    <button type="submit">Generar pedido</button>
+
+    <fieldset class="contacto">
+      <legend>Contactanos</legend>
+      <label>Correo electrónico:
+        <input type="email" id="correoC">
+      </label>
+      <label>Comentario:
+        <textarea id="comentarioC" rows="3"></textarea>
+      </label>
+    </fieldset>
   </form>
 
   <p id="mensajeError" style="color:red; display:none;">Por favor selecciona el método de entrega.</p>

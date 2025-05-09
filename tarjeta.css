@@ -7,7 +7,7 @@ body {
 
 h1 {
   text-align: center;
-  color: #4CAF50;
+  color: #af4c4c;
 }
 
 form {
@@ -32,7 +32,7 @@ input[type="text"], input[type="month"] {
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: #af4c4c;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -41,5 +41,5 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #d57373;
 }

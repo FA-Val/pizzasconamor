@@ -31,12 +31,28 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 button:hover {
   background-color: #a04545;
 }
+
 .logo {
   display: block;
   margin: 20px auto;
+}
+
+/* Estilo especial para contacto */
+.contacto {
+  background-color: #fff3e0;
+  border: 2px dashed #e0914c;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+.contacto legend {
+  font-weight: bold;
+  color: #a35b2e;
 }

@@ -1,18 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Poner la fecha actual al cargar la página
+  const ahora = new Date();
+  const hora = ahora.getHours();
+  const mensajeCierre = document.createElement("p");
+  mensajeCierre.textContent = "Gracias por su preferencia, lo esperamos en horario laboral";
+  mensajeCierre.style.color = "red";
+  mensajeCierre.style.fontWeight = "bold";
+  mensajeCierre.style.textAlign = "center";
+
+  if (hora < 9 || hora >= 20) {
+    document.body.innerHTML = "";
+    document.body.appendChild(mensajeCierre);
+    return;
+  }
   const fechaHoy = new Date();
-  const fechaFormateada = fechaHoy.toISOString().split('T')[0]; // yyyy-mm-dd
+  const fechaFormateada = fechaHoy.toISOString().split('T')[0];
   document.getElementById("fechaPed").value = fechaFormateada;
 
   const formPedido = document.getElementById("formPedido");
 
-  formPedido.addEventListener("submit", (e) => {
+  formPedido.addEventListener("submit", function(e) {
     e.preventDefault();
 
     const nombreC = document.getElementById("nombreC").value.trim();
     const fechaPed = document.getElementById("fechaPed").value;
+    const correo = document.getElementById("correoC").value.trim();
 
-    // Pizzas seleccionadas
     const pedido = [];
     let total = 0;
 
@@ -29,43 +41,54 @@ document.addEventListener("DOMContentLoaded", () => {
       total += 169;
     }
 
-    // Complementos seleccionados
-    if (document.getElementById("refresco").checked) {
-      pedido.push("Refresco");
-      total += 25;
-    }
-    if (document.getElementById("quesoExtra").checked) {
-      pedido.push("Queso Extra");
-      total += 20;
-    }
-    if (document.getElementById("orillaQueso").checked) {
-      pedido.push("Orilla de Queso");
-      total += 30;
-    }
-    if (document.getElementById("papas").checked) {
-      pedido.push("Papas");
-      total += 40;
-    }
+    if (document.getElementById("refresco").checked) pedido.push("Refresco");
+    if (document.getElementById("quesoExtra").checked) pedido.push("Queso Extra");
+    if (document.getElementById("orillaQueso").checked) pedido.push("Orilla de Queso");
+    if (document.getElementById("papas").checked) pedido.push("Papas");
 
-    // Método de entrega
     const metodoEntrega = document.querySelector('input[name="entrega"]:checked');
-
     if (!metodoEntrega) {
       document.getElementById("mensajeError").style.display = "block";
       return;
     }
-
-    // Guardar información en localStorage
     localStorage.setItem("nombreC", nombreC);
     localStorage.setItem("fechaPed", fechaPed);
     localStorage.setItem("pedido", JSON.stringify(pedido));
     localStorage.setItem("total", total);
 
-    // Redirigir a la página correspondiente
+
+    const doc = new window.jspdf.jsPDF();
+    doc.text("Pizzeria con Amor - Ticket", 10, 10);
+    doc.text("Nombre: " + nombreC, 10, 20);
+    doc.text("Fecha: " + fechaPed, 10, 30);
+    doc.text("Pedido: " + pedido.join(", "), 10, 40);
+    doc.text("Total: $" + total, 10, 50);
+    doc.save("ticket.pdf");
+
+    const form = document.createElement("form");
+    form.action = "https://formsubmit.co/plantitasbonitasweb@gmail.com"; 
+    form.method = "POST";
+    form.style.display = "none";
+
+    const inputCorreo = document.createElement("input");
+    inputCorreo.type = "hidden";
+    inputCorreo.name = "Correo del cliente";
+    inputCorreo.value = correo;
+
+    const inputMensaje = document.createElement("input");
+    inputMensaje.type = "hidden";
+    inputMensaje.name = "Mensaje del pedido";
+    inputMensaje.value = "Pedido: " + pedido.join(", ") + " | Total: $" + total + " | Comentario: " + comentario;
+
+    form.appendChild(inputCorreo);
+    form.appendChild(inputMensaje);
+    document.body.appendChild(form);
+    form.submit();
+
     if (metodoEntrega.value === "local") {
       window.location.href = "local.html";
     } else if (metodoEntrega.value === "domicilio") {
       window.location.href = "domicilio.html";
-    }
-  });
+    }
+  });
 });
