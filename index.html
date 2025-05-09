@@ -26,6 +26,7 @@
       <label><input type="checkbox" id="hawaiana"> Hawaiana $119</label>
       <label><input type="checkbox" id="mexicana"> Mexicana $169</label>
     </fieldset>
+    <br><br>
 
     <fieldset>
       <legend>Complementos:</legend>
@@ -34,7 +35,7 @@
       <label><input type="checkbox" id="orillaQueso"> Orilla de Queso</label>
       <label><input type="checkbox" id="papas"> Papas</label>
     </fieldset>
-
+    <br><br>
     <fieldset>
       <legend>Método de entrega:</legend>
       <label><input type="radio" name="entrega" value="local"> Consumo Local</label>
@@ -44,15 +45,15 @@
     <button type="submit">Generar pedido</button>
 
     <fieldset class="contacto">
-  <legend>Contáctanos</legend>
-  <label>Correo electrónico:
-    <input type="email" id="correoContacto" required>
-  </label>
-  <label>Comentario:
-    <textarea id="comentarioContacto" rows="3" required></textarea>
-  </label>
-  <button type="button" id="btnContacto">Enviar comentario</button>
-</fieldset>
+      <legend>Contáctanos</legend>
+      <label>Correo electrónico:
+        <input type="email" id="correoContacto">
+      </label>
+      <label>Comentario:
+        <textarea id="comentarioContacto" rows="3"></textarea>
+      </label>
+      <button type="button" id="btnContacto">Enviar comentario</button>
+    </fieldset>
   </form>
 
   <p id="mensajeError" style="color:red; display:none;">Por favor selecciona el método de entrega.</p>

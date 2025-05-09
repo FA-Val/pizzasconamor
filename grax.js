@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pedido = JSON.parse(localStorage.getItem("pedido")) || [];
   const total = localStorage.getItem("total") || 0;
   const correo = localStorage.getItem("correoC") || "";
-  const comentario = localStorage.getItem("comentarioC") || "";
+  const comentario = localStorage.getItem("comentario") || "";
 
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
@@ -43,5 +43,5 @@ document.addEventListener("DOMContentLoaded", () => {
     form.appendChild(inputMensaje);
     document.body.appendChild(form);
     form.submit();
-  }
+  }
 });

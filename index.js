@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nombreC = document.getElementById("nombreC").value.trim();
     const fechaPed = document.getElementById("fechaPed").value;
-    const correo = document.getElementById("correoC").value.trim();
-    const comentario = document.getElementById("comentarioC").value.trim();
+    const correo = document.getElementById("correoContacto").value.trim();
+    const comentario = document.getElementById("comentarioContacto").value.trim();
 
     const pedido = [];
     let total = 0;
@@ -61,34 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("correoC", correo);
     localStorage.setItem("comentario", comentario);
 
-    const doc = new window.jspdf.jsPDF();
-    doc.text("Pizzería con Amor - Ticket", 10, 10);
-    doc.text("Nombre: " + nombreC, 10, 20);
-    doc.text("Fecha: " + fechaPed, 10, 30);
-    doc.text("Pedido: " + pedido.join(", "), 10, 40);
-    doc.text("Total: $" + total, 10, 50);
-    doc.save("ticket.pdf");
-
-    const form = document.createElement("form");
-    form.action = "https://formsubmit.co/plantitasbonitasweb@gmail.com"; 
-    form.method = "POST";
-    form.style.display = "none";
-
-    const inputCorreo = document.createElement("input");
-    inputCorreo.type = "hidden";
-    inputCorreo.name = "Correo del cliente";
-    inputCorreo.value = correo;
-
-    const inputMensaje = document.createElement("input");
-    inputMensaje.type = "hidden";
-    inputMensaje.name = "Mensaje del pedido";
-    inputMensaje.value = "Pedido: " + pedido.join(", ") + " | Total: $" + total + " | Comentario: " + comentario;
-
-    form.appendChild(inputCorreo);
-    form.appendChild(inputMensaje);
-    document.body.appendChild(form);
-    form.submit();
-
     if (metodoEntrega.value === "local") {
       window.location.href = "local.html";
     } else if (metodoEntrega.value === "domicilio") {
@@ -123,6 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
       form.appendChild(inputComentario);
       document.body.appendChild(form);
       form.submit();
-    });
-  }
+    });
+  }
 });
