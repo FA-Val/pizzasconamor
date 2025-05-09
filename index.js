@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(mensajeCierre);
     return;
   }
+
   const fechaHoy = new Date();
   const fechaFormateada = fechaHoy.toISOString().split('T')[0];
   document.getElementById("fechaPed").value = fechaFormateada;
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nombreC = document.getElementById("nombreC").value.trim();
     const fechaPed = document.getElementById("fechaPed").value;
     const correo = document.getElementById("correoC").value.trim();
+    const comentario = document.getElementById("comentarioC").value.trim();
 
     const pedido = [];
     let total = 0;
@@ -51,14 +53,16 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("mensajeError").style.display = "block";
       return;
     }
+
     localStorage.setItem("nombreC", nombreC);
     localStorage.setItem("fechaPed", fechaPed);
     localStorage.setItem("pedido", JSON.stringify(pedido));
     localStorage.setItem("total", total);
-
+    localStorage.setItem("correoC", correo);
+    localStorage.setItem("comentario", comentario);
 
     const doc = new window.jspdf.jsPDF();
-    doc.text("Pizzeria con Amor - Ticket", 10, 10);
+    doc.text("Pizzería con Amor - Ticket", 10, 10);
     doc.text("Nombre: " + nombreC, 10, 20);
     doc.text("Fecha: " + fechaPed, 10, 30);
     doc.text("Pedido: " + pedido.join(", "), 10, 40);
@@ -89,6 +93,36 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "local.html";
     } else if (metodoEntrega.value === "domicilio") {
       window.location.href = "domicilio.html";
-    }
-  });
+    }
+  });
+
+  const btnContacto = document.getElementById("btnContacto");
+  if (btnContacto) {
+    btnContacto.addEventListener("click", () => {
+      const correo = document.getElementById("correoContacto").value.trim();
+      const comentario = document.getElementById("comentarioContacto").value.trim();
+
+      if (!correo || !comentario) return;
+
+      const form = document.createElement("form");
+      form.action = "https://formsubmit.co/plantitasbonitasweb@gmail.com";
+      form.method = "POST";
+      form.style.display = "none";
+
+      const inputCorreo = document.createElement("input");
+      inputCorreo.type = "hidden";
+      inputCorreo.name = "Correo del cliente (Contacto)";
+      inputCorreo.value = correo;
+
+      const inputComentario = document.createElement("input");
+      inputComentario.type = "hidden";
+      inputComentario.name = "Comentario del cliente";
+      inputComentario.value = comentario;
+
+      form.appendChild(inputCorreo);
+      form.appendChild(inputComentario);
+      document.body.appendChild(form);
+      form.submit();
+    });
+  }
 });

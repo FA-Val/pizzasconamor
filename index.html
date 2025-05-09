@@ -44,14 +44,15 @@
     <button type="submit">Generar pedido</button>
 
     <fieldset class="contacto">
-      <legend>Contactanos</legend>
-      <label>Correo electrónico:
-        <input type="email" id="correoC">
-      </label>
-      <label>Comentario:
-        <textarea id="comentarioC" rows="3"></textarea>
-      </label>
-    </fieldset>
+  <legend>Contáctanos</legend>
+  <label>Correo electrónico:
+    <input type="email" id="correoContacto" required>
+  </label>
+  <label>Comentario:
+    <textarea id="comentarioContacto" rows="3" required></textarea>
+  </label>
+  <button type="button" id="btnContacto">Enviar comentario</button>
+</fieldset>
   </form>
 
   <p id="mensajeError" style="color:red; display:none;">Por favor selecciona el método de entrega.</p>

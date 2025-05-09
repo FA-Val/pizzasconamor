@@ -1,21 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
   const volver = document.getElementById("volver");
+
   volver.addEventListener("click", () => {
     localStorage.clear();
     window.location.href = "index.html";
   });
+
   const nombreC = localStorage.getItem("nombreC") || "Sin nombre";
   const fechaPed = localStorage.getItem("fechaPed") || "Sin fecha";
   const pedido = JSON.parse(localStorage.getItem("pedido")) || [];
   const total = localStorage.getItem("total") || 0;
   const correo = localStorage.getItem("correoC") || "";
+  const comentario = localStorage.getItem("comentarioC") || "";
+
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  doc.text("Pizzeria con Amor - Ticket", 10, 10);
+  doc.text("Pizzería con Amor - Ticket", 10, 10);
   doc.text("Nombre: " + nombreC, 10, 20);
   doc.text("Fecha: " + fechaPed, 10, 30);
   doc.text("Pedido: " + pedido.join(", "), 10, 40);
   doc.text("Total: $" + total, 10, 50);
+  doc.text("Comentario: " + comentario, 10, 60);
   doc.save("ticket.pdf");
 
   if (correo !== "") {
