@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const volver = document.getElementById("volver");
 
   volver.addEventListener("click", () => {
-    console.log("Botón 'Volver' presionado");
-
     const nombreC = localStorage.getItem("nombreC") || "Sin nombre";
     const fechaPed = localStorage.getItem("fechaPed") || "Sin fecha";
     const pedido = JSON.parse(localStorage.getItem("pedido")) || [];
@@ -24,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     doc.text(`Total: $${total}`, 10, 60 + pedido.length * 10);
     doc.text(`Comentario: ${comentario}`, 10, 70 + pedido.length * 10);
+
     doc.save("ticket.pdf");
+
     if (correo) {
       const form = document.createElement("form");
       form.action = "https://formsubmit.co/plantitasbonitasweb@gmail.com";
@@ -49,6 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       localStorage.clear();
       window.location.href = "index.html";
-    }, 2000);
+    }, 1000); 
   });
 });
