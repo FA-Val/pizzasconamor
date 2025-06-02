@@ -56,3 +56,32 @@ button:hover {
   font-weight: bold;
   color: #a35b2e;
 }
+.plantas-medicinales {
+  max-width: 500px;
+  margin: 20px auto;
+  background-color: #A8D5BA; /* Verde suave */
+  border: 2px solid #B08550; /* Marrón suave */
+  border-radius: 10px;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 1.1em;
+  color: #4F4F4F; /* Gris oscuro */
+  box-shadow: 0 2px 5px rgba(176, 129, 80, 0.4);
+}
+
+.plantas-medicinales h2 {
+  margin-bottom: 10px;
+  color: #4CAF50; /* Verde intenso */
+}
+
+.plantas-medicinales a {
+  text-decoration: none;
+  color: #4CAF50;
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.plantas-medicinales a:hover {
+  border-color: #81C784; /* Verde claro */
+}
