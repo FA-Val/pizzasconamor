@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const volver = document.getElementById("volver");
 
   volver.addEventListener("click", () => {
+    console.log("Botón 'Volver' presionado");
+
     const nombreC = localStorage.getItem("nombreC") || "Sin nombre";
     const fechaPed = localStorage.getItem("fechaPed") || "Sin fecha";
     const pedido = JSON.parse(localStorage.getItem("pedido")) || [];
