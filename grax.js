@@ -23,8 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     doc.text(`Total: $${total}`, 10, 60 + pedido.length * 10);
     doc.text(`Comentario: ${comentario}`, 10, 70 + pedido.length * 10);
     doc.save("ticket.pdf");
-
-    // Enviar correo si existe
     if (correo) {
       const form = document.createElement("form");
       form.action = "https://formsubmit.co/plantitasbonitasweb@gmail.com";
